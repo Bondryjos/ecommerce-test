@@ -102,11 +102,6 @@ ALTER TABLE users
 	FOREIGN KEY (vehicules_id)
 	REFERENCES vehicules(vehicules_id);
 
-ALTER TABLE vehicules
-	ADD CONSTRAINT vehicules_fk_users
-	FOREIGN KEY (users_id)
-	REFERENCES users(users_id);
-
 ALTER TABLE formulaires
    ADD CONSTRAINT formulaires_fk_vehicules
    FOREIGN KEY (vehicules_id)
