@@ -12,7 +12,7 @@ $errors = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["garages_id"])) {
         if ($_FILES["image_accueil"]["error"] > 0) {
-            echo "Erreur lors du téléchargement: " . $_FILES["image_accueil"]["error"];
+            $image=null;
         } else {
             $uploadDirectory = "../src/assets/";
     
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ;
         }
         if ($_FILES["image_service"]["error"] > 0) {
-            echo "Erreur lors du téléchargement: " . $_FILES["image_service"]["error"];
+            $imageService=null;
         } else {
             $uploadDirectory = "../src/assets/";
     
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             move_uploaded_file($_FILES["image_service"]["tmp_name"], $destination)
             ;
         }
-        $stmt = $pdo->prepare("UPDATE garages SET `titre_service` = ?, `description_service` = ?, `image_service` = ?, `titre_accueil` = ?, `description_accueil` = ?, `image_accueil` = ?, `gsm` = ?, `adresse` = ? WHERE garages_id = ?");
+        $stmt = $pdo->prepare("UPDATE garages SET `titre_service` = ?, `description_service` = ?, `image_service` = COALESCE(?, image_service), `titre_accueil` = ?, `description_accueil` = ?, `image_accueil` = COALESCE(?, image_accueil), `gsm` = ?, `adresse` = ? WHERE garages_id = ?");
         
         $stmt->execute([
             $_POST["titre_service"],

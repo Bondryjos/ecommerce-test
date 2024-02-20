@@ -12,7 +12,7 @@ $errors = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["vehicules_id"])) {
         if ($_FILES["image"]["error"] > 0) {
-            echo "Erreur lors du téléchargement: " . $_FILES["image"]["error"];
+           $image=null;
         } else {
             $uploadDirectory = "../src/assets/";
     
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ;
         }
        
-        $stmt = $pdo->prepare("UPDATE vehicules SET `prix` = ?,`image` = ?, `annee_mise_en_circulation` = ?, `kilometrage` = ?, `titre` = ?, `description` = ? WHERE vehicules_id = ?");
+        $stmt = $pdo->prepare("UPDATE vehicules SET `prix` = ?,`image` = COALESCE(?, image), `annee_mise_en_circulation` = ?, `kilometrage` = ?, `titre` = ?, `description` = ? WHERE vehicules_id = ?");
         
         $stmt->execute([
             $_POST["prix"],

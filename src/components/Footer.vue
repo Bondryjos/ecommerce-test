@@ -5,9 +5,9 @@
           <v-col cols="12" md="6">
             <h2>Information légale</h2>
             <ul>
-             <li style="list-style:none;"><a href="poliquedeconfidentialité.pdf">Politique de confidentialité</a></li>
-              <li style="list-style:none;"><a href="Mentions Légales - Garage automobile - 2024-02-18T01_54_43Z.pdf">Mentions légal</a></li>
-              <li style="list-style:none;"><a href="conditiond'utilisation.pdf">Conditions d'utilisation</a></li>
+             <li style="list-style:none;"><a href="/politique.html" style="text-decoration: none;color:black">Politique de confidentialité</a></li>
+              <li style="list-style:none;"><a href="/Mentions Légales - Garage automobile - 2024-02-18T01_54_43Z.pdf" style="text-decoration: none;color:black">Mentions légal</a></li>
+              <li style="list-style:none;"><a href="/condition_d_utilisation.html" style="text-decoration: none;color:black">Conditions d'utilisation</a></li>
             </ul>
           </v-col>
           <v-col cols="12" md="5" >
